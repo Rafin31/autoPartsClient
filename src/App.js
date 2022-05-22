@@ -1,13 +1,19 @@
+import { Route, Routes } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Main from './Pages/Home/Main'
+import Navbar from './Pages/Shared/Navbar'
 
-const MySwal = withReactContent(Swal)
+// const MySwal = withReactContent(Swal)
 
 function App() {
 	return (
-		<div style={{ textAlign: 'center' }}>
-			<h1 className="text-5xl">Welcome</h1>
-		</div>
+		<>
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Main />} />
+			</Routes>
+		</>
 	)
 }
 
