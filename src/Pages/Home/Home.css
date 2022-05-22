@@ -4,11 +4,37 @@
 }
 
 .saleBox {
-    height: 400px;
+    height: 350px;
+    overflow: hidden;
 }
 
 .saleBox .card {
     height: 100%;
-    background-image: url('http://via.placeholder.com/720x320');
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.saleBox .card-1 {
+
+    background-image: url('../../Assets/Sale/at_autozpro_banner-1.webp');
+
+}
+
+.saleBox .card-2 {
+
+    background-image: url('../../Assets/Sale/at_autozpro_banner-2.webp');
+
+}
+
+.saleBox .card-3 {
+
+    background-image: url('../../Assets/Sale/at_autozpro_banner-3.webp');
+
+}
+
+.saleBox .card-4 {
+
+    background-image: url('../../Assets/Sale/at_autozpro_banner-4.webp');
+
 }
