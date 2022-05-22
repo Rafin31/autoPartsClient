@@ -34,47 +34,47 @@ const Categories = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcset="" />
+                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
                     <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
