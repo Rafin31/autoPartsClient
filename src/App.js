@@ -3,6 +3,10 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Main from './Pages/Home/Main'
 import Navbar from './Pages/Shared/Navbar'
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // const MySwal = withReactContent(Swal)
 

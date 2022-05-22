@@ -1,14 +1,8 @@
 import React from 'react';
-import './Home.css'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FiChevronRight } from 'react-icons/fi'
 
-
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper"; // EffectFade
 import Button from '../Shared/Button';
