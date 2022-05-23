@@ -10,8 +10,8 @@ import Button from '../Shared/Button';
 
 const BusinessSummery = () => {
     return (
-        <div className="parentWrapper min-w-full py-6  bg-[#f5f5f5]">
-            <div className='container max-w-[1700px] mx-auto mt-10'>
+        <div className="parentWrapper min-w-full py-10  bg-[#f5f5f5]">
+            <div className='container max-w-[1700px] mx-auto '>
                 <div className="title mb-8">
                     <p className="title-text text-3xl font-extrabold pl-3">Our Business</p>
                 </div>
@@ -46,8 +46,8 @@ const BusinessSummery = () => {
                     </div>
                 </div>
 
-                <div class="card w-[80%] mx-auto bg-base-100 mt-10">
-                    <div class="card-body grid laptop:grid-cols-2 mobile:grid-cols-1 desktop:grid-cols-2 tablet:grid-cols-2 gap-x-14">
+                <div className="card w-[80%] mx-auto bg-base-100 mt-10">
+                    <div className="card-body grid laptop:grid-cols-2 mobile:grid-cols-1 desktop:grid-cols-2 tablet:grid-cols-2 gap-x-14">
                         <div className="subscribe">
                             <p className='text-3xl font-bold text-cyan-500'>Looking For Automotive Professional?</p>
                             <p className='text-lg font-light text-black'>Join our FREE membership program for industry professionals - receive these exclusive benefits:</p>

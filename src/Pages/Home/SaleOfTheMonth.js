@@ -138,11 +138,11 @@ const SaleOfTheMonth = () => {
                 </div>
                 <div className="dealWrapperRight  laptop:col-span-4">
 
-                    <div class="card w-full bg-base-100 border-[1px] border-[#f3f3f3] rounded-none">
-                        <div class="card-body text-center">
+                    <div className="card w-full bg-base-100 border-[1px] border-[#f3f3f3] rounded-none">
+                        <div className="card-body text-center">
                             <p className='text-sm text-blue-600 font-bold'>Subscribe To Our Newsletter!</p>
                             <p className='text-xl text-black font-black'>Get The Latest News, Updates, And Amazing Offers</p>
-                            <input type="text" placeholder="your Email" class="input w-full border-[1px] border-[#f3f3f3]" />
+                            <input type="text" placeholder="your Email" className="input w-full border-[1px] border-[#f3f3f3]" />
                             <Button width={"w-full"} >Subscribe now <IoIosArrowForward className='ml-3 inline' /></Button>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import Categories from './Categories';
 import Sale from './Sale';
 import SaleOfTheMonth from './SaleOfTheMonth';
 import BusinessSummery from './BusinessSummery';
+import Review from './Review';
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
             <Sale />
             <SaleOfTheMonth />
             <BusinessSummery />
+            <Review />
         </div>
     );
 };

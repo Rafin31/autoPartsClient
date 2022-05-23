@@ -27,30 +27,37 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className=" flex flex-col justify-center items-center slider w-full h-full slderText bg-[url('http://via.placeholder.com/1440x360')] ">
-                        <p className="text-3xl font-extrabold">Lorem, ipsum dolor.</p>
-                        <p className="text-xl font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repellendus vel culpa!.</p>
+                    <div className=" flex flex-col justify-center mobile:p-5 laptop:pl-56 desktop:pl-56  slider w-full h-full slderText-1 ">
+                        <p className='text-xl font-bold text-white'>One Day Special</p>
+
+                        <p className="text-6xl font-black text-yellow-500">
+                            <span className='text-sm text-gray-300 font-bold'>GET UP TO</span> 20% Off</p>
 
 
-                        <Button width={"w-62"}> Show Now <FiChevronRight className='inline' /> </Button>
+                        <p className="text-xl font-light text-white">On All Engine oil Products</p>
+
+
 
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className=" flex flex-col justify-center items-center slider w-full h-full slderText bg-[url('http://via.placeholder.com/1440x360')] ">
-                        <p className="text-3xl font-extrabold">Lorem, ipsum dolor.</p>
-                        <p className="text-xl font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repellendus vel culpa!.</p>
+                    <div className=" flex flex-col justify-center items-end mobile:p-5 laptop:pr-56 desktop:pr-56  slider w-full h-full slderText-2 ">
+                        <p className='text-xl font-bold text-red-600 pr-5'>One Day Special</p>
+
+                        <p className="text-6xl font-black text-yellow-500 pr-5">
+                            <span className='text-sm text-white font-bold'>GET UP TO</span> 20% Off</p>
 
 
-                        <Button width={"w-62"}> Show Now <FiChevronRight className='inline' /> </Button>
+                        <p className="text-xl text-white font-light text-white pr-5">On All Engine oil Products</p>
+
+
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className=" flex flex-col justify-center items-center slider w-full h-full slderText bg-[url('http://via.placeholder.com/1440x360')] ">
-                        <p className="text-3xl font-extrabold">Lorem, ipsum dolor.</p>
-                        <p className="text-xl font-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde repellendus vel culpa!.</p>
-
-                        <Button width={"w-62"}> Show Now <FiChevronRight className='inline' /> </Button>
+                    <div className=" flex flex-col justify-center mobile:p-5 laptop:pl-56 desktop:pl-56  slider w-full h-full slderText-3 bg-[url('https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_slide-1.png?v=1650379580')] ">
+                        <p className='text-xl font-bold text-white'>One Day Special</p>
+                        <p className="text-6xl font-black text-yellow-500"> <span className='text-sm text-gray-300 font-bold'>GET UP TO</span> 20% Off</p>
+                        <p className="text-xl font-light text-white">On All Engine oil Products</p>
 
                     </div>
                 </SwiperSlide>

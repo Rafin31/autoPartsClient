@@ -34,48 +34,48 @@ const Categories = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-1.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-8.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-7.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-5.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-2.png?v=1647879288" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-3.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-4.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-1.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="http://via.placeholder.com/100x100" className='mx-auto' alt="" srcSet="" />
-                    <p className="category_item text-sm font-bold text-center mt-3">Lorem, ipsum dolor.</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_cate-3.png?v=1647879283" className='mx-auto' alt="" srcSet="" />
+                    <p className="category_item text-sm font-bold text-center mt-3">Brake Systems </p>
                     <p className="category_sub_item text-xs font-light text-center ">Available: 10.</p>
                 </SwiperSlide>
             </Swiper>

@@ -5,6 +5,26 @@
     background-position: center;
 }
 
+.slderText-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_slide-1.png?v=1650379580");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slderText-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_banner-7.png?v=1648095442");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slderText-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_slide-1.png?v=1650379580");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 /* Sale */
 
