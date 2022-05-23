@@ -9,7 +9,7 @@ import Button from '../Shared/Button';
 
 const Banner = () => {
     return (
-        <div className='container min-w-full'>
+        <div className='container max-w-[1700px] mx-auto'>
             <Swiper
                 spaceBetween={30}
                 // effect={"fade"}

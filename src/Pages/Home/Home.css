@@ -4,7 +4,7 @@
 }
 
 .saleBox {
-    height: 350px;
+    height: 400px;
     overflow: hidden;
 }
 
@@ -37,4 +37,8 @@
 
     background-image: url('../../Assets/Sale/at_autozpro_banner-4.webp');
 
+}
+
+.card-body button {
+    transition: all 0.3s ease-in-out !important;
 }

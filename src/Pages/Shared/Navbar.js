@@ -5,9 +5,8 @@ import Button from './Button';
 
 const Navbar = () => {
     return (
-        <div className='container max-w-full'>
-
-            <div className="navbar bg-base-100 mx-auto max-w-[1340px]">
+        <div className='container max-w-[1700px] mx-auto '>
+            <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex="0" className="btn btn-ghost laptop:hidden desktop:hidden">
