@@ -1,7 +1,13 @@
+/* Banner */
+
 .slider {
     height: 500px;
     background-position: center;
 }
+
+
+/* Sale */
+
 
 .saleBox {
     height: 400px;
@@ -42,3 +48,6 @@
 .card-body button {
     transition: all 0.3s ease-in-out !important;
 }
+
+
+/* SaleOfTheMonth */

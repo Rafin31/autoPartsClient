@@ -4,7 +4,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 
 const Sale = () => {
     return (
-        <div className='max-w-[1700px] mx-auto h-[30vh] flex justify-center items-center grid gap-5 mb-40 mobile:grid-cols-1 desktop:grid-cols-3 laptop:grid-cols-2'>
+        <div className='max-w-[1700px] mx-auto h-[auto] flex justify-center items-center grid gap-5 mb-10 mobile:grid-cols-1 desktop:grid-cols-3 laptop:grid-cols-2'>
 
 
             <div className="saleBox saleBox-1 justify-center">
