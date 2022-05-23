@@ -70,7 +70,7 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-0">
                                 <img src={deal1} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span></p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span><span className='text-xs font-light text-red-600 ml-1'>Save 20%</span></p>
                                     <p className='text-xl font-extrabold text-black'>NRG Innovations® - 3-Spoke Chameleon Classic</p>
                                     <p className='text-sm text-gray-400 mt-3 '>Air & fuel delivery</p>
 
@@ -86,7 +86,7 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-3">
                                 <img src={deal2} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$300</s>$159</span></p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$300</s>$159</span><span className='text-xs font-light text-red-600 ml-1'>Save 10%</span></p>
                                     <p className='text-xl font-extrabold text-black'>Pierce® - PS Series Self-Recovery Electric</p>
                                     <p className='text-sm text-gray-400 mt-3 '>Air & fuel delivery</p>
 
@@ -102,7 +102,7 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-3">
                                 <img src={deal3} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$900</s>$600</span></p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$900</s>$600</span><span className='text-xs font-light text-red-600 ml-1'>Save 40%</span></p>
                                     <p className='text-xl font-extrabold text-black'>OEM Tools® - R-134a A/C Starter </p>
                                     <p className='text-sm text-gray-400 mt-3 '>TATA</p>
 
@@ -118,7 +118,7 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-3">
                                 <img src={deal1} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span></p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span><span className='text-xs font-light text-red-600 ml-1'>Save 9%</span></p>
                                     <p className='text-xl font-extrabold text-black'>NRG Innovations® - 3-Spoke Chameleon Classic</p>
                                     <p className='text-sm text-gray-400 mt-3 '>Air & fuel delivery</p>
 
