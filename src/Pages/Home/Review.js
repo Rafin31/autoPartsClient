@@ -9,14 +9,14 @@ import Rating from 'react-rating';
 
 const Review = () => {
     return (
-        <div className='container max-w-[1700px] mx-auto mt-10'>
+        <div className='container max-w-[1700px] mx-auto my-10 py-16'>
 
-            <div className="title mb-8">
+            <div className="title mb-36">
                 <p className="title-text text-3xl font-black">Our Customer Review</p>
             </div>
 
             <Swiper
-                slidesPerView={2}
+                slidesPerView={3}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
@@ -31,7 +31,7 @@ const Review = () => {
                         spaceBetween: 20,
                     }
                 }}
-                spaceBetween={40}
+                spaceBetween={20}
                 slidesPerGroup={2}
                 loop={true}
                 autoplay={{

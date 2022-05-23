@@ -27,7 +27,9 @@ const Navbar = () => {
                             <li><Link to="#">Item 3</Link></li>
                         </ul>
                     </div>
-                    <Link to="#" className="normal-case text-xl cursor-pointer">Chaos Auto Parts</Link>
+                    <Link to="#" className="normal-case text-xl cursor-pointer">
+                        <img src="https://demo74leotheme.b-cdn.net/prestashop/at_autozpro_demo/img/logo-1647663381.jpg" alt="" srcset="" />
+                    </Link>
                 </div>
                 <div className="navbar-center hidden laptop:flex">
                     <ul className="menu menu-horizontal p-0">

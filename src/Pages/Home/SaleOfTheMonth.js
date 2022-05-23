@@ -29,7 +29,7 @@ const SaleOfTheMonth = () => {
 
 
     return (
-        <div className='container max-w-[1700px] mx-auto '>
+        <div className='container max-w-[1700px] mx-auto py-24 '>
             <div className="title mb-8">
                 <p className="title-text text-3xl font-extrabold">Deals of the month</p>
             </div>

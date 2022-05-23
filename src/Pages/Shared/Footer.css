@@ -1,0 +1,16 @@
+.footerRightBottom p {
+    transition: all 0.3s ease-in-out;
+}
+
+.footerRightBottom p:not(:first-child):hover {
+    color: blue;
+    margin-left: 10px;
+}
+
+.footerLeftContactWrapper a {
+    transition: all 0.3s ease-in-out;
+}
+
+.footerLeftContactWrapper a:hover {
+    color: #e0ae19;
+}
