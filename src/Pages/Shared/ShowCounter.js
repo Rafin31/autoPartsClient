@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCountdown } from '../../Hooks/useCountDown';
+import CounterExpire from './CounterExpire';
 import DateTimeDisplay from './DateTimeDisplay';
 
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
@@ -19,17 +20,21 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
 const CountdownTimer = ({ targetDate }) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
-    // console.log("from CountdownTimer", days, hours, minutes, seconds);
+    if (days + hours + minutes + seconds <= 0) {
+        return <CounterExpire />;
+    } else {
+        return (
+            <ShowCounter
+                days={days}
+                hours={hours}
+                minutes={minutes}
+                seconds={seconds}
+            />
+        );
+    }
 
 
-    return (
-        <ShowCounter
-            days={days}
-            hours={hours}
-            minutes={minutes}
-            seconds={seconds}
-        />
-    );
+
 
 };
 

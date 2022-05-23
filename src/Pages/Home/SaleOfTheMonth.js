@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Home.css'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { IoIosArrowForward } from 'react-icons/io'
 
 import deal1 from '../../Assets/Dels/deal1.jpg'
 import deal2 from '../../Assets/Dels/deal2.jpg'
 import deal3 from '../../Assets/Dels/deal3.jpg'
 import CountdownTimer from '../Shared/ShowCounter';
+import Button from '../Shared/Button';
 
 
 
@@ -31,7 +33,7 @@ const SaleOfTheMonth = () => {
             <div className="title mb-8">
                 <p className="title-text text-3xl font-extrabold">Deals of the month</p>
             </div>
-            <div className="dealsWrapper w-full grid laptop:grid-cols-12 desktop:grid-cols-12 mobile:grid-cols-1 gap-5 mx-auto">
+            <div className="dealsWrapper w-full grid gap-x-7 laptop:grid-cols-12 desktop:grid-cols-12 mobile:grid-cols-1 gap-5 mx-auto">
 
                 <div className="dealWrapperLeft  laptop:col-span-8">
 
@@ -84,8 +86,8 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-3">
                                 <img src={deal2} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span></p>
-                                    <p className='text-xl font-extrabold text-black'>NRG Innovations® - 3-Spoke Chameleon Classic</p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$300</s>$159</span></p>
+                                    <p className='text-xl font-extrabold text-black'>Pierce® - PS Series Self-Recovery Electric</p>
                                     <p className='text-sm text-gray-400 mt-3 '>Air & fuel delivery</p>
 
                                     <p className='text-sm font-bold text-gray-400 mt-8 mb-5'>Sale Ends In</p>
@@ -100,9 +102,9 @@ const SaleOfTheMonth = () => {
                             <div className="dealSliderWrapper grid grid-cols-2 gap-3">
                                 <img src={deal3} className='mx-left' alt="" srcSet="" />
                                 <div className="dealDetails">
-                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$500</s>$359</span></p>
-                                    <p className='text-xl font-extrabold text-black'>NRG Innovations® - 3-Spoke Chameleon Classic</p>
-                                    <p className='text-sm text-gray-400 mt-3 '>Air & fuel delivery</p>
+                                    <p className='text-bold text-lg text-blue-600'> <span><s className='text-sm text-gray-400 mr-2'>$900</s>$600</span></p>
+                                    <p className='text-xl font-extrabold text-black'>OEM Tools® - R-134a A/C Starter </p>
+                                    <p className='text-sm text-gray-400 mt-3 '>TATA</p>
 
                                     <p className='text-sm font-bold text-gray-400 mt-8 mb-5'>Sale Ends In</p>
                                     <CountdownTimer targetDate={thirdDealEnds} />
@@ -135,7 +137,16 @@ const SaleOfTheMonth = () => {
 
                 </div>
                 <div className="dealWrapperRight  laptop:col-span-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis labore dolor, dolorum, necessitatibus ut nesciunt eveniet, et hic praesentium optio quo fuga itaque consequatur voluptas eaque error maxime voluptatibus ad aperiam! Similique, eos labore. Maxime, ipsum ea dicta consectetur nemo quibusdam aut tenetur recusandae necessitatibus molestiae repellendus quo hic quaerat.</div>
+
+                    <div class="card w-full bg-base-100 border-[1px] border-[#f3f3f3] rounded-none">
+                        <div class="card-body text-center">
+                            <p className='text-sm text-blue-600 font-bold'>Subscribe To Our Newsletter!</p>
+                            <p className='text-xl text-black font-black'>Get The Latest News, Updates, And Amazing Offers</p>
+                            <input type="text" placeholder="your Email" class="input w-full border-[1px] border-[#f3f3f3]" />
+                            <Button width={"w-full"} >Subscribe now <IoIosArrowForward className='ml-3 inline' /></Button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
