@@ -9,7 +9,7 @@ import Rating from 'react-rating';
 
 const Review = () => {
     return (
-        <div className='container max-w-[1700px] mx-auto my-10 py-16'>
+        <div className='container max-w-[1700px] mx-auto my-10 py-16' id='review'>
 
             <div className="title mb-36">
                 <p className="title-text text-3xl font-black">Our Customer Review</p>

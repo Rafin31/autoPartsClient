@@ -16,7 +16,7 @@ const Footer = () => {
                 ">
 
                     <Link to={"/"}>
-                        <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_logowhite.png?v=1651032674" alt="" srcset="" />
+                        <img src="https://cdn.shopify.com/s/files/1/0577/9675/5633/files/at_autozpro_logowhite.png?v=1651032674" alt="" srcSet="" />
                     </Link>
 
                     <p className="footerAbout text-[#959595] text-sm laptop:w-[90%]">

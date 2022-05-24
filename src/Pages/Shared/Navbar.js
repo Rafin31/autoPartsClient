@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaSignInAlt } from 'react-icons/fa';
 import Button from './Button';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
+    const redirectToLogin = () => {
+        navigate('/login')
+    }
+
+
     return (
         <div className='container max-w-[1700px] mx-auto '>
             <div className="navbar bg-base-100">
@@ -13,43 +20,29 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to="#">Item 1</Link></li>
-                            <li tabIndex="0">
-                                <Link to="#" className="justify-between">
-                                    Parent
-                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                                </Link>
-                                <ul className="p-2 bg-white z-10">
-                                    <li><Link to="#">Submenu 1</Link></li>
-                                    <li><Link to="#">Submenu 2</Link></li>
-                                </ul>
-                            </li>
-                            <li><Link to="#">Item 3</Link></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="#category"> Categories</Link></li>
+                            <li><Link to="#deals"> Hot Deals</Link></li>
+                            <li><Link to="#review"> Review</Link></li>
+                            <li><Link to="#contact"> Contact Us</Link></li>
                         </ul>
                     </div>
                     <Link to="#" className="normal-case text-xl cursor-pointer">
-                        <img src="https://demo74leotheme.b-cdn.net/prestashop/at_autozpro_demo/img/logo-1647663381.jpg" alt="" srcset="" />
+                        <img src="https://demo74leotheme.b-cdn.net/prestashop/at_autozpro_demo/img/logo-1647663381.jpg" alt="" srcSet="" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden laptop:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to="#">Item 1</Link></li>
-                        <li tabIndex="0">
-                            <Link to="#">
-                                Parent
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </Link>
-                            <ul className="p-2 bg-white z-10 border-l-2 border-r-2">
-                                <li><Link to="#">Submenu 1</Link></li>
-                                <li><Link to="#">Submenu 2</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link to="#">Item 3</Link></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="#category"> Categories</Link></li>
+                        <li><Link to="#deals"> Hot Deals</Link></li>
+                        <li><Link to="#review"> Review</Link></li>
+                        <li><Link to="#contact"> Contact Us</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {/* <Link to={'#'}></Link> */}
-                    <Button width="w-44" > <FaSignInAlt className='mr-2' /> Sign in</Button>
+                    <Button width="w-44" onclick={redirectToLogin} > <FaSignInAlt className='mr-2' /> Sign in</Button>
                 </div>
             </div>
 
