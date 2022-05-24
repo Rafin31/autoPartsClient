@@ -4,7 +4,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 const Categories = () => {
     return (
-        <div className='container category flex justify-center items-center h-[30vh] max-w-[1500px] mx-auto'>
+        <div className='container category flex justify-center items-center h-[30vh] max-w-[1500px] mx-auto' id='category'>
             <Swiper
                 slidesPerView={6}
                 breakpoints={{

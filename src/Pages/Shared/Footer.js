@@ -9,7 +9,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className='w-full mx-auto bg-[#212121] h-[auto] pt-16 pb-8 px-10'>
+        <div className='w-full mx-auto bg-[#212121] h-[auto] pt-16 pb-8 px-10' id='contact'>
 
             <div className="footerContainer max-w-[1700px] mx-auto grid grid-cols-12 ">
                 <div className="footer flex flex-col justify-center footerLeft laptop:col-span-3 mobile:col-span-12 border-[#373737] laptop:border-r-[1px] laptop:border-b-0  mobile:border-b-[1px] mobile:border-r-[0px]

@@ -10,8 +10,8 @@ import "swiper/css/navigation";
 import Footer from './Pages/Shared/Footer'
 import Login from './Pages/Authentication/Login'
 import Signup from './Pages/Authentication/Signup'
+import Loading from './Pages/Shared/Loading'
 
-// const MySwal = withReactContent(Swal)
 
 function App() {
 	return (
