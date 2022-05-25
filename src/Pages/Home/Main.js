@@ -6,6 +6,7 @@ import Sale from './Sale';
 import SaleOfTheMonth from './SaleOfTheMonth';
 import BusinessSummery from './BusinessSummery';
 import Review from './Review';
+import Products from './Products';
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
             <Categories />
             <Sale />
             <SaleOfTheMonth />
+            <Products />
             <BusinessSummery />
             <Review />
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import googleIcon from '../../Assets/icons/google-logo.png'
 import loadingSpinnerGif from '../../Assets/Loading/Dual Ring-1.4s-197px.gif'
@@ -12,9 +12,13 @@ const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [emailForReset, setEmail] = useState()
+    let location = useLocation();
+    const navigate = useNavigate()
+    let from = location.state?.from?.pathname || "/";
     let formError;
 
-    const navigate = useNavigate()
+
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
     };
@@ -27,7 +31,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
 
-    const [sendPasswordResetEmail, sending, PasswordResetError] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
     const handleResetPassword = (e) => {
         e.preventDefault()
@@ -94,7 +98,7 @@ const Login = () => {
             timer: 1500
         })
 
-        navigate('/')
+        navigate(from, { replace: true });
     }
 
 

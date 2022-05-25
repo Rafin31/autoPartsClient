@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import avatar from '../../Assets/icons/user-avatar.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaSignInAlt } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -10,6 +10,11 @@ import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const location = useLocation();
+    console.log(location.pathname);
+
+
+
     const navigate = useNavigate();
 
     const [open, setOpen] = useState(false)
@@ -61,19 +66,19 @@ const Navbar = () => {
                             </li>
 
                             <li onClick={() => handleMenuOpen()}  >
-                                <Link to="#category"> Categories</Link>
+                                <a href="/#category">Categories</a>
                             </li>
 
                             <li onClick={() => handleMenuOpen()} >
-                                <Link to="#deals"> Hot Deals</Link>
+                                <a href="/#deals">Hot Deals</a>
                             </li>
 
                             <li onClick={() => handleMenuOpen()} >
-                                <Link to="#review"> Review</Link>
+                                <a href="/#review">Review</a>
                             </li>
                             <li onClick={() => handleMenuOpen()}  >
 
-                                <Link to="#contact"> Contact Us</Link>
+                                <a href="/#contact">Contact Us</a>
                             </li>
 
                         </ul>
@@ -111,28 +116,50 @@ const Navbar = () => {
                             <>
                                 <div className="navbar-end max-w-full ">
 
-                                    <div className="avatar">
-                                        <div className="w-12 rounded-full">
-                                            <img src={user.photoURL ? user.photoURL : avatar} alt="userImg" />
-                                        </div>
-                                    </div>
+                                    <div className="max-w-full">
+
+                                        {
+                                            location.pathname.includes('/dashboard') ?
+                                                <>
+                                                    <div className="dashboardSideNav laptop:hidden desktop:hidden mobile:flex">
+
+                                                        <label tabIndex="1" for="my-drawer-2" className="btn btn-ghost lg:hidden">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                                                        </label>
+
+                                                    </div>
+                                                </>
+                                                :
+                                                <>
+
+                                                    <div className="userInfo flex justify-center items-center">
+                                                        <div className="avatar">
+                                                            <div className="w-12 rounded-full">
+                                                                <img src={user.photoURL ? user.photoURL : avatar} alt="userImg" />
+                                                            </div>
+                                                        </div>
 
 
-                                    <div className="dropdown dropdown-end">
-                                        <label tabIndex="0" className="text ml-3 cursor-pointer">
-                                            <MdKeyboardArrowDown className='inline' />
-                                            {user.displayName ? user.displayName : user.email?.split("@")[0]} </label>
-                                        <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li >
-                                                <Link to={'/'}>Profile</Link>
-                                            </li>
-                                            <li >
-                                                <Link to={'/'}>Profile</Link>
-                                            </li>
-                                            <li onClick={handleLogout} >
-                                                <Link to={'/'}>Logout</Link>
-                                            </li>
-                                        </ul>
+                                                        <div className="dropdown dropdown-end">
+                                                            <label tabIndex="0" className="text ml-3 cursor-pointer">
+                                                                <MdKeyboardArrowDown className='inline' />
+                                                                {user.displayName ? user.displayName : user.email?.split("@")[0]} </label>
+                                                            <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                                                <li >
+                                                                    <Link to={'/dashboard'}>Dashboard</Link>
+                                                                </li>
+                                                                <li onClick={handleLogout} >
+                                                                    <Link to={'/'}>Logout</Link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </>
+                                        }
+
+
+
                                     </div>
                                 </div>
 
