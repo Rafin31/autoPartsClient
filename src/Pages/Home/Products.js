@@ -10,7 +10,7 @@ const Products = () => {
 
     const handleOrderButton = (id) => {
         navigation(`/order/${id}`)
-        // console.log(id);
+
     }
 
     const { isLoading, data: products } = useQuery('products',
