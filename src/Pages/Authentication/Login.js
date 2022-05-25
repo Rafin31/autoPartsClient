@@ -11,6 +11,7 @@ import auth from '../../firebase.init';
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [emailForReset, setEmail] = useState()
     let formError;
 
     const navigate = useNavigate()
@@ -28,6 +29,26 @@ const Login = () => {
 
     const [sendPasswordResetEmail, sending, PasswordResetError] = useSendPasswordResetEmail(auth);
 
+    const handleResetPassword = (e) => {
+        e.preventDefault()
+        if (emailForReset) {
+            sendPasswordResetEmail(emailForReset)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `An Password Reset Email Has been sent to ${emailForReset}`,
+                showConfirmButton: false,
+                timer: 2500
+            })
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Provide Email address',
+                text: "Provide Email address to email address input filed",
+            })
+        }
+    }
+
 
     const [
         signInWithGoogle,
@@ -40,6 +61,12 @@ const Login = () => {
     const handleGoogleLogin = () => {
         signInWithGoogle()
     }
+
+    const getEmail = (e) => {
+        e.preventDefault()
+        setEmail(e.target.value)
+    }
+
 
     if (error || googleError) {
 
@@ -81,7 +108,7 @@ const Login = () => {
 
                                 <div className="emailInput">
                                     <span>Email</span>
-                                    <input type="text" placeholder="Email" className={`input input-bordered w-full max-w-xs ${errors?.email && "border-2 border-red-600"}`}
+                                    <input type="text" name='email' onKeyUp={(e) => getEmail(e)} placeholder="Email" className={`input input-bordered w-full max-w-xs ${errors?.email && "border-2 border-red-600"}`}
 
                                         {...register("email",
                                             {
@@ -144,8 +171,10 @@ const Login = () => {
                                 }
                                 {formError}
                                 <div className="forgetPassword my-3 text-center">
-                                    <p className='text-xs'>Forget Your Password?
-                                        <Link className='text-blue-500' to={" "} >Reset Password</Link></p>
+                                    <p className='text-xs nr-3'>Forget Your Password?
+                                        <Link className='text-blue-500' to={" "} onClick={
+                                            (e) => handleResetPassword(e)
+                                        } >Reset Password</Link></p>
                                 </div>
                             </form>
 
