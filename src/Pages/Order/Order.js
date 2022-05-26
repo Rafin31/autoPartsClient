@@ -11,20 +11,15 @@ import Loading from '../Shared/Loading';
 const Order = () => {
 
     const { id } = useParams()
+    const [modal, setModal] = useState(false)
     const [minimumQty, setQty] = useState(0)
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [user] = useAuthState(auth)
 
-
-    const onSubmit = data => {
-        console.log(data);
-    };
-
-
     const { isLoading, data: product } = useQuery('products',
         async () => {
-            return axios.get(`products/${id}`).then(data => data.data)
+            return axios.get(`/products/${id}`).then(data => data.data)
         }
     )
 
@@ -36,14 +31,65 @@ const Order = () => {
     const { name, description, Saller_name, minimum_order_qty, price, img } = product.Data
 
 
+    const onSubmit = data => {
+
+        if (minimumQty >= minimum_order_qty) {
+            const order = {
+                name: data.name,
+                email: data.email,
+                quantity: minimumQty,
+                totalPrice: minimumQty * price,
+                phone: data.phone,
+                address: data.address,
+
+            }
+            axios.post('/order', { order })
+                .then(data => {
+                    if (data.status === 200) {
+                        setModal(!modal)
+                        setQty(0)
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Order Has been placed',
+                            text: `Your order has been placed. Thank you`,
+                        })
+
+                    } else {
+                        setModal(!modal)
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: `Something Went Wrong Try Again`,
+                        })
+
+                    }
+                })
+
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `You Have to order minimum ${minimum_order_qty} pc`,
+            })
+        }
+
+    };
+
+
+
+
+
+
     const handleQtyButton = (condition) => {
         if (condition === "+") {
             setQty(minimumQty + 1)
+            setModal(false)
 
         } else {
 
             if (minimumQty > 0 && minimumQty > minimum_order_qty) {
                 setQty(minimumQty - 1)
+                setModal(false)
 
             } else {
 
@@ -91,98 +137,98 @@ const Order = () => {
             </div>
 
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-            <label htmlFor="my-modal-4" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
-                    <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold ">place Your Order</h3>
-                    <h3 className="text-sm font-bold my-5">{`Total Price ${minimumQty * price}`}</h3>
+            {
+                !modal && <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                    <label className="modal-box relative" htmlFor="">
+                        <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <h3 className="text-lg font-bold ">place Your Order</h3>
+                        <h3 className="text-sm font-bold my-5">{`Total Price ${minimumQty * price}`}</h3>
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="nameInput mb-5">
-                            <input readOnly type="text" name='name' value={user.displayName ? user.displayName : user.email?.split("@")[0]} className={` input input-bordered w-full  ${errors?.name && "border-2 border-red-600"}`}
+                            <div className="nameInput mb-5">
+                                <input readOnly type="text" name='name' value={user.displayName ? user.displayName : user.email?.split("@")[0]} className={` input input-bordered w-full  ${errors?.name && "border-2 border-red-600"}`}
 
-                                {...register("name",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Name Required"
-                                        }
-                                    },
-                                )} />
-
-
-                            {errors.name?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.name.message}</span>}
-
-
-                        </div>
-
-
-                        <div className="emailInput mb-5">
-                            <input readOnly type="text" name='email' value={user?.email} className={` input input-bordered w-full  ${errors?.email && "border-2 border-red-600"}`}
-
-                                {...register("email",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Email Required"
+                                    {...register("name",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Name Required"
+                                            }
                                         },
-                                        pattern: {
-                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                            message: 'Invalid Email'
-                                        }
-                                    },
-                                )} />
+                                    )} />
 
 
-                            {errors.email?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.email.message}</span>}
-                            {errors.email?.type === 'pattern' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.email.message}</span>}
-
-                        </div>
-
-                        <div className="PhoneInput mb-5">
-                            <input type="number" name='phone' placeholder="Your Phone Number" className={` input input-bordered w-full  ${errors?.phone && "border-2 border-red-600"}`}
-
-                                {...register("phone",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Phone Required"
-                                        }
-                                    },
-                                )} />
+                                {errors.name?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.name.message}</span>}
 
 
-                            {errors.phone?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.phone.message}</span>}
-                        </div>
-
-                        <div className="addressInput mb-5">
-                            <input type="text" name='address' placeholder="Your address " className={` input input-bordered w-full  ${errors?.address && "border-2 border-red-600"}`}
-
-                                {...register("address",
-                                    {
-                                        required: {
-                                            value: true,
-                                            message: "Address Required"
-                                        }
-                                    },
-                                )} />
+                            </div>
 
 
-                            {errors.address?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.address.message}</span>}
-                        </div>
+                            <div className="emailInput mb-5">
+                                <input readOnly type="text" name='email' value={user?.email} className={` input input-bordered w-full  ${errors?.email && "border-2 border-red-600"}`}
+
+                                    {...register("email",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Email Required"
+                                            },
+                                            pattern: {
+                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                message: 'Invalid Email'
+                                            }
+                                        },
+                                    )} />
 
 
-                        <button type='submit' htmlFor="my-modal-4" className="btn text-white tracking-widest border-0 
+                                {errors.email?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.email.message}</span>}
+
+                            </div>
+
+                            <div className="PhoneInput mb-5">
+                                <input type="number" name='phone' placeholder="Your Phone Number" className={` input input-bordered w-full  ${errors?.phone && "border-2 border-red-600"}`}
+
+                                    {...register("phone",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Phone Required"
+                                            }
+                                        },
+                                    )} />
+
+
+                                {errors.phone?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.qty.message}</span>}
+                            </div>
+
+
+
+                            <div className="addressInput mb-5">
+                                <input type="text" name='address' placeholder="Your address " className={` input input-bordered w-full  ${errors?.address && "border-2 border-red-600"}`}
+
+                                    {...register("address",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: "Address Required"
+                                            }
+                                        },
+                                    )} />
+
+
+                                {errors.address?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.address.message}</span>}
+                            </div>
+
+
+                            <button type='submit' htmlFor="my-modal-4" className="btn text-white tracking-widest border-0 
                            bg-gradient-to-r from-cyan-500 to-blue-500  w-full
                            hover:from-blue-500 hover:to-cyan-500">Place Order</button>
-
-
-
-
-                    </form>
+                        </form>
+                    </label>
                 </label>
-            </label>
+            }
         </div>
 
 

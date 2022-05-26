@@ -14,8 +14,6 @@ const Product = ({ product, handleOrderButton }) => {
                     <p className='text-sm text-light text-gray-400'>{Saller_name}</p>
                     <p>{description.slice(0, 200) + "... "}</p>
 
-                    <p>{minimum_order_qty}</p>
-
                     <div className="">
                         <button className={`btn text-white tracking-widest border-0 
                            bg-gradient-to-r from-cyan-500 to-blue-500  w-full

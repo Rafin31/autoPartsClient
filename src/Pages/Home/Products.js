@@ -19,7 +19,7 @@ const Products = () => {
         }
     )
 
-    console.log(products);
+    // console.log(products);
 
     return (
         <div className='container max-w-[1700px] mx-auto pb-20'>

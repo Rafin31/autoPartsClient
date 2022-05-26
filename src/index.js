@@ -10,7 +10,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 const queryClient = new QueryClient()
 
 
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = 'http://localhost:5000';
 axios.interceptors.request.use(function (config) {
 	// request.headers.Authorization = 
 	return config;
