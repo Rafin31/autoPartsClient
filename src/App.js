@@ -15,6 +15,8 @@ import Profile from './Pages/Dashboard/Profile'
 import AddReview from './Pages/Dashboard/AddReview'
 import Order from './Pages/Order/Order';
 import AddProduct from './Pages/Dashboard/admin/AddProduct';
+import ManageOrders from './Pages/Dashboard/admin/ManageOrders';
+import ManageProducts from './Pages/Dashboard/admin/ManageProducts';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
 					<Route path='myprofile' element={<Profile />} />
 					<Route path='addreview' element={<AddReview />} />
 					<Route path='addProduct' element={<AddProduct />} />
+					<Route path='manageOrders' element={<ManageOrders />} />
+					<Route path='manageProduct' element={<ManageProducts />} />
 				</Route>
 				<Route path='/order/:id' element={<AuthRoute><Order /></AuthRoute>} />
 			</Routes>
