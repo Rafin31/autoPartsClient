@@ -20,7 +20,7 @@ const ManageProducts = () => {
 
 
         Swal.fire({
-            title: 'Do you want to Cancel the Order?',
+            title: 'Do you want to Delete the product?',
             showDenyButton: true,
             confirmButtonText: 'Delete',
             denyButtonText: `Cancel`,
@@ -30,7 +30,6 @@ const ManageProducts = () => {
                 axios.delete(`/products/${id}`)
                     .then(res => {
                         if (res.status === 200) {
-                            console.log(res);
                             refetch()
                         }
                     })

@@ -17,6 +17,7 @@ import Order from './Pages/Order/Order';
 import AddProduct from './Pages/Dashboard/admin/AddProduct';
 import ManageOrders from './Pages/Dashboard/admin/ManageOrders';
 import ManageProducts from './Pages/Dashboard/admin/ManageProducts';
+import MakeAdmin from './Pages/Dashboard/admin/MakeAdmin';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 					<Route path='addProduct' element={<AddProduct />} />
 					<Route path='manageOrders' element={<ManageOrders />} />
 					<Route path='manageProduct' element={<ManageProducts />} />
+					<Route path='makeAdmin' element={<MakeAdmin />} />
 				</Route>
 				<Route path='/order/:id' element={<AuthRoute><Order /></AuthRoute>} />
 			</Routes>
