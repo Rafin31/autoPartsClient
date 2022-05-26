@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.8.1",
+    "@stripe/stripe-js": "^1.30.0",
     "axios": "^0.27.2",
     "cra-template-minimal-react18": "0.1.1",
     "daisyui": "^2.15.0",

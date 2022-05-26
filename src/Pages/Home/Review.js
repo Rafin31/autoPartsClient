@@ -5,9 +5,28 @@ import { AiFillStar } from 'react-icons/ai'
 import { AiOutlineStar } from 'react-icons/ai'
 import { Autoplay, Pagination, Navigation } from "swiper";
 import Rating from 'react-rating';
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import Loading from '../Shared/Loading';
 
 
 const Review = () => {
+
+
+    const { isLoading, data: review, refetch, isFetching } = useQuery(['review'],
+        async () => {
+            return axios.get(`/review`).then(data => data.data)
+        }
+    )
+
+    if (isLoading || isFetching) {
+        return <Loading />
+    }
+
+    console.log(review.Data);
+
+
+
     return (
         <div className='container max-w-[1700px] mx-auto my-10 py-16' id='review'>
 
@@ -43,106 +62,41 @@ const Review = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>
+                {
+                    review?.Data.map(data => {
+                        return (
+                            <>
 
-                    <div className="reviewWrapper grid grid-cols-1 gap-3">
-                        <div className="reviewtop">
-                            <div className="reviewState flex justify-center align-baseline">
-                                <p className='text-7xl text-yellow-400 font-black mr-2'>5</p>
-                                <div className="reviewName">
-                                    <p className='font-bold'>Lorem, ipsum.</p>
-                                    <p className='text-xs text-gray-400'>2 Days ago</p>
-                                    <Rating
-                                        placeholderRating={5}
-                                        readonly={true}
-                                        emptySymbol={<AiOutlineStar />}
-                                        placeholderSymbol={<AiFillStar className='text-yellow-400' />}
-                                        fullSymbol={<AiFillStar className='text-yellow-400' />}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewBottom w-[60%] mx-auto text-center">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum assumenda voluptates eaque tempora a earum minus repudiandae cumque expedita saepe!
-                        </div>
-                    </div>
+                                <SwiperSlide>
 
-                </SwiperSlide>
-                <SwiperSlide>
+                                    <div className="reviewWrapper grid grid-cols-1 gap-3">
+                                        <div className="reviewtop">
+                                            <div className="reviewState flex justify-center align-baseline">
+                                                <p className='text-7xl text-yellow-400 font-black mr-2'>{data.rating}</p>
+                                                <div className="reviewName">
+                                                    <p className='font-bold'>{data.name}</p>
+                                                    <p className='text-xs text-gray-400'>2 Days ago</p>
+                                                    <Rating
+                                                        placeholderRating={data.rating}
+                                                        readonly={true}
+                                                        emptySymbol={<AiOutlineStar />}
+                                                        placeholderSymbol={<AiFillStar className='text-yellow-400' />}
+                                                        fullSymbol={<AiFillStar className='text-yellow-400' />}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="reviewBottom w-[60%] mx-auto text-center">
+                                            {data.review}
+                                        </div>
+                                    </div>
 
-                    <div className="reviewWrapper grid grid-cols-1 gap-3">
-                        <div className="reviewtop">
-                            <div className="reviewState flex justify-center align-baseline">
-                                <p className='text-7xl text-yellow-400 font-black mr-2'>4.5</p>
-                                <div className="reviewName">
-                                    <p className='font-bold'>Lorem, ipsum.</p>
-                                    <p className='text-xs text-gray-400'>2 Days ago</p>
-                                    <Rating
-                                        placeholderRating={4.5}
-                                        readonly={true}
-                                        emptySymbol={<AiOutlineStar />}
-                                        placeholderSymbol={<AiFillStar className='text-yellow-400' />}
-                                        fullSymbol={<AiFillStar className='text-yellow-400' />}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewBottom w-[60%] mx-auto text-center">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum assumenda voluptates eaque tempora a earum minus repudiandae cumque expedita saepe!
-                        </div>
-                    </div>
+                                </SwiperSlide>
+                            </>
+                        )
+                    })
+                }
 
-                </SwiperSlide>
-                <SwiperSlide>
-
-                    <div className="reviewWrapper grid grid-cols-1 gap-3">
-                        <div className="reviewtop">
-                            <div className="reviewState flex justify-center align-baseline">
-                                <p className='text-7xl text-yellow-400 font-black mr-2'>3.5</p>
-                                <div className="reviewName">
-                                    <p className='font-bold'>Lorem, ipsum.</p>
-                                    <p className='text-xs text-gray-400'>2 Days ago</p>
-                                    <Rating
-                                        placeholderRating={3.5}
-                                        readonly={true}
-                                        emptySymbol={<AiOutlineStar />}
-                                        placeholderSymbol={<AiFillStar className='text-yellow-400' />}
-                                        fullSymbol={<AiFillStar className='text-yellow-400' />}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewBottom w-[60%] mx-auto text-center">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum assumenda voluptates eaque tempora a earum minus repudiandae cumque expedita saepe!
-                        </div>
-                    </div>
-
-                </SwiperSlide>
-                <SwiperSlide>
-
-                    <div className="reviewWrapper grid grid-cols-1 gap-3">
-                        <div className="reviewtop">
-                            <div className="reviewState flex justify-center align-baseline">
-                                <p className='text-7xl text-yellow-400 font-black mr-2'>5</p>
-                                <div className="reviewName">
-                                    <p className='font-bold'>Lorem, ipsum.</p>
-                                    <p className='text-xs text-gray-400'>2 Days ago</p>
-                                    <Rating
-                                        placeholderRating={5}
-                                        readonly={true}
-                                        emptySymbol={<AiOutlineStar />}
-                                        placeholderSymbol={<AiFillStar className='text-yellow-400' />}
-                                        fullSymbol={<AiFillStar className='text-yellow-400' />}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewBottom w-[60%] mx-auto text-center">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum assumenda voluptates eaque tempora a earum minus repudiandae cumque expedita saepe!
-                        </div>
-                    </div>
-
-                </SwiperSlide>
 
             </Swiper>
         </div>

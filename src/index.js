@@ -12,7 +12,10 @@ const queryClient = new QueryClient()
 
 axios.defaults.baseURL = 'http://localhost:5000';
 axios.interceptors.request.use(function (config) {
-	// request.headers.Authorization = 
+
+	const token = `Bearer ${localStorage.getItem('accessToken')}`
+	config.headers.authorization = token
+
 	return config;
 }, function (error) {
 	return Promise.reject(error);

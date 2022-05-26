@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
@@ -15,6 +15,7 @@ const Order = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [minimumQty, setQty] = useState(0)
     const [user] = useAuthState(auth)
+    const navigate = useNavigate()
 
     const { isLoading, data: product } = useQuery('products',
         async () => {
@@ -54,6 +55,8 @@ const Order = () => {
                             title: 'Order Has been placed',
                             text: `Your order has been placed. Thank you`,
                         })
+                        navigate(`/payment/${data.data.Data.insertedId}`)
+                        // console.log(data.data.Data.insertedId);
 
                     } else {
                         setModal(!modal)

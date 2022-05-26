@@ -64,12 +64,21 @@ const Login = () => {
 
 
     const handleGoogleLogin = () => {
+
         signInWithGoogle()
     }
 
     const getEmail = (e) => {
         e.preventDefault()
         setEmail(e.target.value)
+    }
+
+    const getJWT = async (email) => {
+
+        await axios.post('/login', { email })
+            .then(res => {
+                localStorage.setItem('accessToken', res.data.accessToken)
+            })
     }
 
     const sendUserToMongo = (email, name) => {
@@ -82,7 +91,8 @@ const Login = () => {
             linkdinLink: null,
         }
 
-        axios.post("/users", { user }).then(res => console.log(res))
+        axios.post("/users", { user }).then(res => res)
+        getJWT(email)
     }
 
 
@@ -104,6 +114,8 @@ const Login = () => {
         }
     }
 
+
+
     if (user || googleUser) {
 
 
@@ -112,6 +124,10 @@ const Login = () => {
             sendUserToMongo(googleUser.user?.email, googleUser.user?.displayName ? googleUser.user?.displayName : null)
         }
 
+
+
+        // getJWT(user.user.email || googleUser.user.email)
+        // console.log(user.user || googleUser.user);
 
 
         Swal.fire({
