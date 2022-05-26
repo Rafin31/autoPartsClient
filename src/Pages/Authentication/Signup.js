@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import googleIcon from '../../Assets/icons/google-logo.png'
@@ -7,6 +7,7 @@ import loadingSpinnerGif from '../../Assets/Loading/Dual Ring-1.4s-197px.gif'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 
@@ -30,11 +31,26 @@ const Signup = () => {
 
 
     const onSubmit = data => {
+        console.log("From onSubmit");
+        sendUserToMongo(data.email, data.name)
         createUserWithEmailAndPassword(data.email, data.password)
     };
 
     const handleGoogleSignUp = (event) => {
         signInWithGoogle()
+    }
+
+    const sendUserToMongo = (email, name) => {
+        const user = {
+            name: name,
+            email: email,
+            role: "user",
+            phoneNumber: null,
+            address: null,
+            linkdinLink: null,
+        }
+
+        axios.post("/users", { user }).then(res => console.log(res))
     }
 
 
@@ -47,6 +63,10 @@ const Signup = () => {
     }
 
     if (user || googleUser) {
+        if (googleUser) {
+            console.log("From google user");
+            sendUserToMongo(googleUser.user?.email, googleUser.user?.displayName ? googleUser.user?.displayName : null)
+        }
         Swal.fire({
             position: 'center',
             icon: 'success',

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
@@ -71,6 +72,20 @@ const Login = () => {
         setEmail(e.target.value)
     }
 
+    const sendUserToMongo = (email, name) => {
+        const user = {
+            name: name,
+            email: email,
+            role: "user",
+            phoneNumber: null,
+            address: null,
+            linkdinLink: null,
+        }
+
+        axios.post("/users", { user }).then(res => console.log(res))
+    }
+
+
 
     if (error || googleError) {
 
@@ -90,6 +105,15 @@ const Login = () => {
     }
 
     if (user || googleUser) {
+
+
+        if (googleUser) {
+            console.log("From google user");
+            sendUserToMongo(googleUser.user?.email, googleUser.user?.displayName ? googleUser.user?.displayName : null)
+        }
+
+
+
         Swal.fire({
             position: 'center',
             icon: 'success',

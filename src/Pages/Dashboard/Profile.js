@@ -1,17 +1,44 @@
+import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Profile = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, } = useForm();
 
     const [user] = useAuthState(auth)
 
+    const { isLoading, data: userInfo, refetch, isFetching } = useQuery(['userInfo'],
+        async () => {
+            return axios.get(`/users/${user.email}`).then(data => data.data)
+        }
+    )
+
+    if (isLoading || isFetching) {
+        return <Loading />
+    }
+
     const onSubmit = (data) => {
 
-        console.log(data);
+
+        axios.put(`/users/${user.email}`, { data })
+            .then(res => console.log(res.data))
+
+        refetch()
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Profile Info Updated',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
+
+
 
     return (
         <div className='container max-w-[1700px] mx-auto px-10'>
@@ -22,7 +49,7 @@ const Profile = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="nameInput mb-5">
-                    <input type="text" name='name' placeholder='Your name' value={user.displayName && user.displayName} className={` input input-bordered w-full  ${errors?.name && "border-2 border-red-600"}`}
+                    <input type="text" name='name' placeholder='Your name' defaultValue={userInfo.Data[0].name && userInfo.Data[0].name} className={` input input-bordered w-full  ${errors?.name && "border-2 border-red-600"}`}
 
                         {...register("name",
                             {
@@ -40,7 +67,7 @@ const Profile = () => {
                 </div>
 
                 <div className="emailInput mb-5">
-                    <input readOnly type="text" name='email' value={user?.email} className={` input input-bordered w-full  ${errors?.email && "border-2 border-red-600"}`}
+                    <input readOnly type="text" name='email' defaultValue={userInfo.Data[0].email} className={` input input-bordered w-full  ${errors?.email && "border-2 border-red-600"}`}
 
                         {...register("email",
                             {
@@ -62,7 +89,7 @@ const Profile = () => {
                 </div>
 
                 <div className="phoneInput mb-5">
-                    <input type="number" name='number' placeholder='Your Phone Number' className={` input input-bordered w-full  ${errors?.number && "border-2 border-red-600"}`}
+                    <input type="number" defaultValue={userInfo.Data[0].phoneNumber} name='number' placeholder='Your Phone Number' className={` input input-bordered w-full  ${errors?.number && "border-2 border-red-600"}`}
 
                         {...register("number",
                             {
@@ -79,7 +106,7 @@ const Profile = () => {
                 </div>
 
                 <div className="addressInput mb-5">
-                    <input type="text" name='number' placeholder='Your Address' className={` input input-bordered w-full  ${errors?.address && "border-2 border-red-600"}`}
+                    <input type="text" defaultValue={userInfo.Data[0].address} name='number' placeholder='Your Address' className={` input input-bordered w-full  ${errors?.address && "border-2 border-red-600"}`}
 
                         {...register("address",
                             {
@@ -96,7 +123,7 @@ const Profile = () => {
                 </div>
 
                 <div className="linkdinInput mb-5">
-                    <input type="text" name='number' placeholder='Your Linkdin Profile Link' className={` input input-bordered w-full  ${errors?.linkdin && "border-2 border-red-600"}`}
+                    <input type="text" defaultValue={userInfo.Data[0].linkdinLink} name='number' placeholder='Your Linkdin Profile Link' className={` input input-bordered w-full  ${errors?.linkdin && "border-2 border-red-600"}`}
 
                         {...register("linkdin",
                             {

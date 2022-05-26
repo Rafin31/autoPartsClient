@@ -14,6 +14,7 @@ import MyOrder from './Pages/Dashboard/MyOrder'
 import Profile from './Pages/Dashboard/Profile'
 import AddReview from './Pages/Dashboard/AddReview'
 import Order from './Pages/Order/Order';
+import AddProduct from './Pages/Dashboard/admin/AddProduct';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 					<Route index element={<MyOrder />} />
 					<Route path='myprofile' element={<Profile />} />
 					<Route path='addreview' element={<AddReview />} />
+					<Route path='addProduct' element={<AddProduct />} />
 				</Route>
 				<Route path='/order/:id' element={<AuthRoute><Order /></AuthRoute>} />
 			</Routes>
