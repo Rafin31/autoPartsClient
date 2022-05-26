@@ -12,9 +12,8 @@ const Order = () => {
 
     const { id } = useParams()
     const [modal, setModal] = useState(false)
-    const [minimumQty, setQty] = useState(0)
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const [minimumQty, setQty] = useState(0)
     const [user] = useAuthState(auth)
 
     const { isLoading, data: product } = useQuery('products',
@@ -28,19 +27,21 @@ const Order = () => {
         return <Loading />
     }
 
-    const { name, description, Saller_name, minimum_order_qty, price, img } = product.Data
+    const { name, description, Saller_name, available, minimum_order_qty, price, img } = product.Data
 
 
     const onSubmit = data => {
 
-        if (minimumQty >= minimum_order_qty) {
+        if (minimumQty >= minimum_order_qty && minimumQty < available) {
             const order = {
                 name: data.name,
                 email: data.email,
+                productName: name,
                 quantity: minimumQty,
                 totalPrice: minimumQty * price,
                 phone: data.phone,
                 address: data.address,
+                paymentStatus: "unpaid",
 
             }
             axios.post('/order', { order })
@@ -66,11 +67,20 @@ const Order = () => {
                 })
 
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: `You Have to order minimum ${minimum_order_qty} pc`,
-            })
+            if (minimumQty > available) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `Product unavailable`,
+                })
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `You Have to order minimum ${minimum_order_qty} pc`,
+                })
+            }
+
         }
 
     };
@@ -118,7 +128,7 @@ const Order = () => {
                 <p className='text-sm font-bold '>Minimum Order quantity {minimum_order_qty} pc</p>
                 <p className='text-sm font-light text-gray-400'>{Saller_name}</p>
                 <p className='text-lg text-gray-400 font-light my-5'>{description}</p>
-
+                <p className='text-sm text-light text-gray-400 pb-5'>{available} pc are available right now</p>
                 <div className="qty grid grid-cols-2 gap-x-3 mobile:w-[100%] laptop:w-[50%] ">
 
                     <div className="form-control ">
@@ -199,8 +209,7 @@ const Order = () => {
                                         },
                                     )} />
 
-
-                                {errors.phone?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.qty.message}</span>}
+                                {errors.phone?.type === 'required' && <span className="ml-2 font-bold label-text-alt text-red-500">{errors.phone.message}</span>}
                             </div>
 
 

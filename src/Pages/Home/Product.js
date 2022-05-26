@@ -2,7 +2,7 @@ import React from 'react';
 
 const Product = ({ product, handleOrderButton }) => {
 
-    const { _id, name, description, Saller_name, minimum_order_qty, price, img } = product
+    const { _id, name, description, Saller_name, available, minimum_order_qty, price, img } = product
 
     return (
         <div className='max-w-full'>
@@ -13,7 +13,7 @@ const Product = ({ product, handleOrderButton }) => {
                     <p className='text-lg font-light text-blue-600'>$ {price}</p>
                     <p className='text-sm text-light text-gray-400'>{Saller_name}</p>
                     <p>{description.slice(0, 200) + "... "}</p>
-
+                    <p className='text-sm text-light text-gray-400 text-center py-5'>{available} pc are available right now</p>
                     <div className="">
                         <button className={`btn text-white tracking-widest border-0 
                            bg-gradient-to-r from-cyan-500 to-blue-500  w-full
