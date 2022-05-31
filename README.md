@@ -74,6 +74,8 @@ Live Site link 👉 [Chaos Auto Parts](https://rad-brioche-4bb8d9.netlify.app).
 - React Query
 - React hook form 
 - Rest API
+- Axios
+- Axios interceptors 
 - Stripe Payment 
 
 
