@@ -44,14 +44,17 @@ const Dashboard = () => {
                                 </>
                         }
                         <li className='hover:bg-blue-400 hover:text-white'><Link to={'/dashboard/myprofile'}>My Profile</Link></li>
-                        <li className='hover:bg-blue-400 hover:text-white'><Link onClick={() => signOut(auth)}
+                        <li className='hover:bg-blue-400 hover:text-white'><Link onClick={() => {
+                            localStorage.removeItem('accessToken')
+                            signOut(auth)
+                        }}
                             to={''}>Logout</Link></li>
                     </ul>
 
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 

@@ -2,13 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
+import { authenticatedApiClient } from '../../../Services/AuthHttp';
 import Loading from '../../Shared/Loading';
 
 const MakeAdmin = () => {
 
     const { isLoading, data: users, refetch, isFetching } = useQuery(['users'],
         async () => {
-            return axios.get(`/users`).then(data => data.data)
+            return authenticatedApiClient.get(`/users`).then(data => data.data)
         }
     )
 

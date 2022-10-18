@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { authenticatedApiClient } from '../../../Services/AuthHttp';
 
 const AddProduct = () => {
 
@@ -33,7 +34,7 @@ const AddProduct = () => {
 
                     }
 
-                    axios.post('/products', { product })
+                    authenticatedApiClient.post('/products', { product })
                         .then(data => {
                             Swal.fire({
                                 position: 'center',

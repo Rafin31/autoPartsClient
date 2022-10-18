@@ -1,10 +1,10 @@
-import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import { authenticatedApiClient } from '../../Services/AuthHttp';
 import Loading from '../Shared/Loading';
 
 const Profile = () => {
@@ -14,7 +14,7 @@ const Profile = () => {
 
     const { isLoading, data: userInfo, refetch, isFetching } = useQuery(['userInfo'],
         async () => {
-            return axios.get(`/users/${user.email}`).then(data => data.data)
+            return authenticatedApiClient.get(`/users/${user.email}`).then(data => data.data)
         }
     )
 
@@ -25,7 +25,7 @@ const Profile = () => {
     const onSubmit = (data) => {
 
 
-        axios.put(`/users/${user.email}`, { data })
+        authenticatedApiClient.put(`/users/${user.email}`, { data })
             .then(res => console.log(res.data))
 
         refetch()

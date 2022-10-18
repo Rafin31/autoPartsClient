@@ -39,7 +39,13 @@ const Signup = () => {
     const handleGoogleSignUp = (event) => {
         signInWithGoogle()
     }
+    const getJWT = async (email) => {
 
+        await axios.post('/login', { email })
+            .then(res => {
+                localStorage.setItem('accessToken', res.data.accessToken)
+            })
+    }
     const sendUserToMongo = (email, name) => {
         const user = {
             name: name,
@@ -50,7 +56,8 @@ const Signup = () => {
             linkdinLink: null,
         }
 
-        axios.post("/users", { user }).then(res => console.log(res))
+        axios.post("/users", { user })
+        getJWT(email)
     }
 
 
@@ -64,8 +71,15 @@ const Signup = () => {
 
     if (user || googleUser) {
         if (googleUser) {
-            console.log("From google user");
-            sendUserToMongo(googleUser.user?.email, googleUser.user?.displayName ? googleUser.user?.displayName : null)
+            sendUserToMongo(googleUser.user?.email,
+                googleUser.user?.displayName ? googleUser.user?.displayName : null)
+            console.log("Google user");
+        }
+        if (user) {
+            sendUserToMongo(user.user?.email,
+                user.user?.displayName ?
+                    user.user?.displayName : null)
+            console.log("Google user");
         }
         Swal.fire({
             position: 'center',
@@ -74,7 +88,6 @@ const Signup = () => {
             showConfirmButton: false,
             timer: 1500
         })
-
         navigate('/')
     }
 

@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import { authenticatedApiClient } from '../../Services/AuthHttp';
 import Loading from '../Shared/Loading';
 
 const Order = () => {
@@ -45,7 +46,7 @@ const Order = () => {
                 paymentStatus: "unpaid",
 
             }
-            axios.post('/order', { order })
+            authenticatedApiClient.post('/order', { order })
                 .then(data => {
                     if (data.status === 200) {
                         setModal(!modal)

@@ -2,13 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
+import { authenticatedApiClient } from '../../../Services/AuthHttp';
 import Loading from '../../Shared/Loading';
 
 const ManageOrders = () => {
 
     const { isLoading, data: orders, refetch, isFetching } = useQuery(['allOrders'],
         async () => {
-            return axios.get(`/orders`).then(data => data.data)
+            return authenticatedApiClient.get(`/orders`).then(data => data.data)
         }
     )
 

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { AiFillStar } from 'react-icons/ai'
@@ -7,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import { authenticatedApiClient } from '../../Services/AuthHttp';
 
 const AddReview = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -23,7 +23,7 @@ const AddReview = () => {
             review: data.review
         }
 
-        axios.post("/review", { review })
+        authenticatedApiClient.post("/review", { review })
             .then(res => {
                 if (res.status === 200) {
                     Swal.fire({

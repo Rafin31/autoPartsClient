@@ -1,5 +1,6 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react"
+import { authenticatedApiClient } from "../Services/AuthHttp";
 
 const useAdmin = user => {
     const [admin, setAdmin] = useState(false);
@@ -9,7 +10,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            axios.get(`/users/${email}`).then(
+            authenticatedApiClient.get(`/users/${email}`).then(
                 data => {
                     if (data.data.Data[0].role === "admin") {
                         setAdmin(true)

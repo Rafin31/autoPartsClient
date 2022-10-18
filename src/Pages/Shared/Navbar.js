@@ -43,6 +43,7 @@ const Navbar = () => {
 
 
     const handleLogout = () => {
+        localStorage.removeItem('accessToken')
         signOut(auth)
     }
 
@@ -135,8 +136,8 @@ const Navbar = () => {
 
                                                     <div className="userInfo flex justify-center items-center">
                                                         <div className="avatar">
-                                                            <div className="w-12 rounded-full">
-                                                                <img src={user.photoURL ? user.photoURL : avatar} alt="userImg" />
+                                                            <div className="w-[50%] block mx-auto rounded-full">
+                                                                <img className="rounded-full" src={user.photoURL ? user.photoURL : avatar} alt="userImg" />
                                                             </div>
                                                         </div>
 

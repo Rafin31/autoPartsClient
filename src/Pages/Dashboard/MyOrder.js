@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import { authenticatedApiClient } from '../../Services/AuthHttp';
 import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
@@ -12,7 +13,7 @@ const MyOrder = () => {
 
     const { isLoading, data: orders, refetch, isFetching } = useQuery(['orders'],
         async () => {
-            return axios.get(`/order?email=${user.email}`).then(data => data.data)
+            return authenticatedApiClient.get(`/order?email=${user.email}`).then(data => data.data)
         }
     )
 

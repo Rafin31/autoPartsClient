@@ -21,7 +21,6 @@ import MakeAdmin from './Pages/Dashboard/admin/MakeAdmin';
 import AdminRoute from './Pages/Authentication/AdminRoute'
 import Payment from './Pages/Payment/Payment';
 
-
 function App() {
 	return (
 		<>
@@ -41,7 +40,12 @@ function App() {
 					<Route path='makeAdmin' element={<AdminRoute><MakeAdmin /></AdminRoute>} />
 
 				</Route>
-				<Route path='/payment/:id' element={<AuthRoute><Payment /></AuthRoute>} />
+				<Route path='/payment/:id' element={
+					<AuthRoute>
+
+						<Payment />
+
+					</AuthRoute>} />
 				<Route path='/order/:id' element={<AuthRoute><Order /></AuthRoute>} />
 			</Routes>
 			<Footer />

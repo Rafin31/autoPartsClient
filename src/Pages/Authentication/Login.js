@@ -64,7 +64,6 @@ const Login = () => {
 
 
     const handleGoogleLogin = () => {
-
         signInWithGoogle()
     }
 
@@ -91,11 +90,9 @@ const Login = () => {
             linkdinLink: null,
         }
 
-        axios.post("/users", { user }).then(res => res)
-        getJWT(email)
+        axios.post("/users", { user }).then(res => getJWT(email))
+
     }
-
-
 
     if (error || googleError) {
 
@@ -114,21 +111,22 @@ const Login = () => {
         }
     }
 
-
-
     if (user || googleUser) {
 
 
         if (googleUser) {
-            console.log("From google user");
-            sendUserToMongo(googleUser.user?.email, googleUser.user?.displayName ? googleUser.user?.displayName : null)
+            sendUserToMongo(googleUser.user?.email,
+                googleUser.user?.displayName ? googleUser.user?.displayName : null)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Logged in',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            navigate(from, { replace: true });
         }
-
-
-
-        // getJWT(user.user.email || googleUser.user.email)
-        // console.log(user.user || googleUser.user);
-
+        getJWT(user.user.email)
 
         Swal.fire({
             position: 'center',
