@@ -57,7 +57,7 @@ const Order = () => {
                             text: `Your order has been placed. Thank you`,
                         })
                         navigate(`/payment/${data.data.Data.insertedId}`)
-                        // console.log(data.data.Data.insertedId);
+
 
                     } else {
                         setModal(!modal)

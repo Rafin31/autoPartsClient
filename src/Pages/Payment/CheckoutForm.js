@@ -1,7 +1,10 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import loadingSpinnerGif from '../../Assets/Loading/Dual Ring-1.4s-197px.gif'
+import { authenticatedApiClient } from '../../Services/AuthHttp'
 
-const CheckoutForm = ({ _id, name, email, productName, quantity, totalPrice, address, phone }) => {
+const CheckoutForm = ({ order }) => {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -9,7 +12,20 @@ const CheckoutForm = ({ _id, name, email, productName, quantity, totalPrice, add
     const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
+    const [clientSecret, setClientSecret] = useState();
+
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: "POST",
+            headers: {
+                'content-type': "application/json",
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ totalPrice: order.totalPrice })
+        })
+            .then(res => res.json())
+            .then(data => setClientSecret(data.clientSecret))
+    }, [order])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,11 +47,40 @@ const CheckoutForm = ({ _id, name, email, productName, quantity, totalPrice, add
 
         if (error) {
             setCardError(error.message);
-        } else {
-            console.log(paymentMethod);
+            setSuccess('')
         }
-    }
 
+        //confirm card payment
+        setProcessing(true)
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: order.name,
+                        email: order.email
+                    },
+                },
+            },
+        );
+
+        if (intentError) {
+            setProcessing(false)
+            setCardError(intentError?.message)
+
+        } else {
+            setCardError("")
+            setTransactionId(paymentIntent.id)
+            setProcessing(false)
+
+            authenticatedApiClient.put(`/order/${order._id}`, { transactionID: paymentIntent.id })
+                .then(data => setSuccess("Congrats! Your Payment is complete"))
+
+
+        }
+
+    }
     return (
         <div className='max-w-[1700px]'>
 
@@ -56,15 +101,29 @@ const CheckoutForm = ({ _id, name, email, productName, quantity, totalPrice, add
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4'
-                    type="submit"
-                    disabled={!stripe}>
-                    Pay
-                </button>
+                {
+                    processing ?
+                        <img src={loadingSpinnerGif} className='mt-3 w-[50px] block mx-auto' alt="icon" srcSet="" />
+                        :
+                        <button className='btn btn-success btn-sm w-full mt-3'
+                            type="submit"
+                            disabled={!stripe || !clientSecret}>
+                            Pay
+                        </button>
+                }
+
+
                 {
                     cardError && <>
-                        <p className="text-center text-sm bg-red-300 py-5 mt-10">{cardError}</p>
+                        <p className="text-center text-sm bg-red-100 py-5 mt-10">{cardError}</p>
                     </>
+                }
+                {
+                    success && <div className="text-center text-sm bg-green-100 py-5 mt-10">
+                        <p>{success}</p>
+                        <p >{`Transaction ID: ${transactionId}`}</p>
+
+                    </div>
                 }
             </form>
         </div>
@@ -72,53 +131,3 @@ const CheckoutForm = ({ _id, name, email, productName, quantity, totalPrice, add
 };
 
 export default CheckoutForm;
-
-
-
-
-
-// setCardError(error?.message || '')
-//         setSuccess('');
-//         setProcessing(true);
-//         // confirm card payment
-//         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
-//             clientSecret,
-//             {
-//                 payment_method: {
-//                     card: card,
-//                     billing_details: {
-//                         name: name,
-//                         email: email
-//                     },
-//                 },
-//             },
-//         );
-
-//         if (intentError) {
-//             setCardError(intentError?.message);
-//             setProcessing(false);
-//         }
-//         else {
-//             setCardError('');
-//             setTransactionId(paymentIntent.id);
-//             setSuccess('Congrats! Your payment is completed.')
-
-//             //store payment on database
-//             const payment = {
-//                 appointment: _id,
-//                 transactionId: paymentIntent.id
-//             }
-//             fetch(`/booking/${_id}`, {
-//                 method: 'PATCH',
-//                 headers: {
-//                     'content-type': 'application/json',
-//                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-//                 },
-//                 body: JSON.stringify(payment)
-//             }).then(res => res.json())
-//                 .then(data => {
-//                     setProcessing(false);
-//                     console.log(data);
-//                 })
-
-//         }

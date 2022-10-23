@@ -20,8 +20,22 @@ import ManageProducts from './Pages/Dashboard/admin/ManageProducts';
 import MakeAdmin from './Pages/Dashboard/admin/MakeAdmin';
 import AdminRoute from './Pages/Authentication/AdminRoute'
 import Payment from './Pages/Payment/Payment';
+import { signOut } from 'firebase/auth';
+import auth from './firebase.init';
+import { isExpired } from "react-jwt";
+
 
 function App() {
+
+
+	if (localStorage.getItem('accessToken')) {
+		if (isExpired(localStorage.getItem('accessToken'))) {
+			signOut(auth)
+		}
+	} else {
+		signOut(auth)
+	}
+
 	return (
 		<>
 			<Navbar />

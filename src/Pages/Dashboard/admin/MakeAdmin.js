@@ -31,7 +31,6 @@ const MakeAdmin = () => {
                 axios.put(`/makeAdmin/${id}`)
                     .then(res => {
                         if (res.status === 200) {
-                            console.log(res);
                             refetch()
                         }
                     })

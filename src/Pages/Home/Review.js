@@ -23,10 +23,6 @@ const Review = () => {
         return <Loading />
     }
 
-    console.log(review.Data);
-
-
-
     return (
         <div className='container max-w-[1700px] mx-auto my-10 py-16' id='review'>
 

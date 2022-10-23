@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 import CheckoutForm from './CheckoutForm';
 import { authenticatedApiClient } from '../../Services/AuthHttp';
 
-const stripePromise = loadStripe('pk_test_51L3kNxAupKlXOSh5379divOfMP9D0bq2nXphW4q29r8WKFm6WvrY1UBhVU1cIEon77wu1vm99XjyxTdeclsjUR3t00Iap3DknV');
+const stripePromise = loadStripe(process.env.REACT_APP_Strip_Dev_Secret);
 
 const Payment = () => {
 
@@ -22,15 +22,6 @@ const Payment = () => {
         return <Loading />
     }
 
-
-    // <td className='text-xs'>{id}</td>
-    // <td>{orderData.name}</td>
-    // <td>{orderData.productName}</td>
-    // <td>{orderData.quantity}</td>
-    // <td>{orderData.totalPrice}</td>
-    // <td>{orderData.address}</td>
-    // <td>{orderData.phone}</td>
-    console.log(orderData);
 
 
     return (

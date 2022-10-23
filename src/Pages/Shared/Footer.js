@@ -37,35 +37,34 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer footerRight laptop:col-span-9 mobile:col-span-12 text-white laptop:pt-0 laptop:pl-14 mobile:pl-0 mobile:pt-14 ">
+                <div className="footer footerRight col-span-9">
 
 
-                    <div className="footerRightWrapper">
+                    <div className="footerRightWrapper w-[100%] pl-5">
+                        <div className="footerRightTop w-[100%] flex flex-wrap justify-evenly items-center mx-auto border-b-[1px] border-[#373737] pb-5 desktop:flex-nowrap">
+                            <div className="boxWrapper flex justify-around items-center w-[100%]  flex-nowrap laptop:flex-wrap mobile:flex-wrap ">
 
-                        <div className="footerRightTop w-full grid laptop:grid-cols-5  laptop:gap-y-0 mobile:grid-cols-1 mobile:gap-y-8 mx-auto
-                     border-b-[1px] border-[#373737] pb-5
-                    ">
-                            <div className="box box-1">
-                                <p className='text-[#959595] text-sm mb-2'  > <BsFillTelephoneOutboundFill className='inline text-yellow-500 mr-2' /> Hotline</p>
-                                <p className='text-lg font-bold text-white cursor-pointer'>+880 1860958541</p>
+                                <div className="box box-1">
+                                    <p className='text-[#959595] text-sm mb-2'  > <BsFillTelephoneOutboundFill className='inline text-yellow-500 mr-2' /> Hotline</p>
+                                    <p className='text-lg font-bold text-white cursor-pointer mobile:text-sm'>+880 1860958541</p>
+                                </div>
+                                <div className="box box-2">
+                                    <p className='text-[#959595] text-sm mb-2'>  <BsFillTelephoneOutboundFill className='inline text-yellow-500 mr-2' />  TECHNICAL SUPPORT</p>
+                                    <p className='text-lg font-bold text-white cursor-pointer mobile:text-sm'>+880 1860958541</p>
+                                </div>
+                                <div className="box box-3">
+                                    <p className='text-[#959595] text-sm mb-2'>  <BsFillClockFill className='inline text-yellow-500 mr-2' />  Mon-Fri</p>
+                                    <p className='text-lg font-bold text-white cursor-pointer mobile:text-sm'>+880 1860958541</p>
+                                </div>
+                                <div className="box box-4">
+                                    <button
+                                        className='py-3 px-4 rounded-lg border-[1px] mt-0 border-white text-black bg-white  hover:bg-blue-600 hover:border-blue-600 hover:text-white laptop:mt-5' >
+                                        <BsFillTelephoneOutboundFill className='inline mr-2' />
+                                        Contact Us
+                                    </button>
+                                </div>
                             </div>
-                            <div className="box box-2">
-                                <p className='text-[#959595] text-sm mb-2'>  <BsFillTelephoneOutboundFill className='inline text-yellow-500 mr-2' />  TECHNICAL SUPPORT</p>
-                                <p className='text-lg font-bold text-white cursor-pointer'>+880 1860958541</p>
-                            </div>
-                            <div className="box box-3">
-                                <p className='text-[#959595] text-sm mb-2'>  <BsFillClockFill className='inline text-yellow-500 mr-2' />  Mon-Fri</p>
-                                <p className='text-lg font-bold text-white cursor-pointer'>+880 1860958541</p>
-                            </div>
-                            <div className="box box-4">
-                                <button
-                                    className='
-                              py-3 px-4 rounded-lg border-[1px] border-white 
-                           text-black bg-white  hover:bg-blue-600 hover:border-blue-600 hover:text-white' >
-                                    <BsFillTelephoneOutboundFill className='inline mr-2' />  Contact Us</button>
-
-                            </div>
-                            <div className="box box-5 flex justify-evenly w-full items-center laptop:mt-0 mobile:mt-10 cursor-pointer" >
+                            <div className="box box-5 flex justify-evenly w-full items-center laptop:mt-10 mobile:mt-10 desktop:mt-0 cursor-pointer laptop:col-span-12 laptop:justify-center" >
                                 <div className="social bg-black p-5 mr-5 rounded-full">
                                     <BsFacebook className='text-xl text-white font-extrabold cursor-pointer ' />
                                 </div>
@@ -80,7 +79,6 @@ const Footer = () => {
                                 </div>
 
                             </div>
-
                         </div>
 
                         <div className="footerRightBottom 2 grid laptop:grid-cols-4 mobile:grid-cols-1 w-full mt-10   mobile:gap-y-8 laptop:gap-y-0 mx-auto">

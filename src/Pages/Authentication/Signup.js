@@ -31,7 +31,6 @@ const Signup = () => {
 
 
     const onSubmit = data => {
-        console.log("From onSubmit");
         sendUserToMongo(data.email, data.name)
         createUserWithEmailAndPassword(data.email, data.password)
     };
@@ -73,13 +72,11 @@ const Signup = () => {
         if (googleUser) {
             sendUserToMongo(googleUser.user?.email,
                 googleUser.user?.displayName ? googleUser.user?.displayName : null)
-            console.log("Google user");
         }
         if (user) {
             sendUserToMongo(user.user?.email,
                 user.user?.displayName ?
                     user.user?.displayName : null)
-            console.log("Google user");
         }
         Swal.fire({
             position: 'center',

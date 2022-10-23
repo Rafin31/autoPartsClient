@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 import Product from './Product';
 
 const Products = () => {
@@ -18,6 +19,10 @@ const Products = () => {
             return axios.get("products").then(data => data.data)
         }
     )
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <div className='container max-w-[1700px] mx-auto pb-20'>

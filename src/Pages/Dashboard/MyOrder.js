@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
@@ -27,12 +26,12 @@ const MyOrder = () => {
             title: 'Do you want to Cancel the Order?',
             showDenyButton: true,
             showCancelButton: true,
-            confirmButtonText: 'Cancel',
+            confirmButtonText: 'Yes',
             denyButtonText: `Don't Cancel`,
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`/order/${id}`)
+                authenticatedApiClient.delete(`/order/${id}`)
                     .then(res => res.data)
                 refetch()
 
@@ -88,7 +87,7 @@ const MyOrder = () => {
                                                 <td>{data.totalPrice}</td>
                                                 <td>{data.phone}</td>
                                                 <td>{data.address}</td>
-                                                <td className={data.paymentStatus === "unpaid" ? `badge badge-error` : `badge badge-success `}  >
+                                                <td className={data.paymentStatus === "unpaid" ? `badge badge-error mt-5` : `badge badge-success mt-5`}  >
                                                     {data.paymentStatus}</td>
 
                                                 <td>

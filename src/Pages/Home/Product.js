@@ -6,7 +6,7 @@ const Product = ({ product, handleOrderButton }) => {
 
     return (
         <div className='max-w-full'>
-            <div className="card card-compact w-full bg-base-100 shadow-sm ">
+            <div className="card card-compact w-full bg-base-100 shadow-sm min-h-[700px] ">
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>

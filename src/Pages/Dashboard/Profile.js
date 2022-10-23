@@ -26,7 +26,6 @@ const Profile = () => {
 
 
         authenticatedApiClient.put(`/users/${user.email}`, { data })
-            .then(res => console.log(res.data))
 
         refetch()
         Swal.fire({

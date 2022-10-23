@@ -46,9 +46,6 @@ const AddProduct = () => {
                         })
                 }
             })
-
-
-        console.log(data);
     }
     return (
         <div className='container max-w-[1700px] mx-auto px-10'>
