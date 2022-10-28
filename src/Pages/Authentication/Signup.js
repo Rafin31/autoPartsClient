@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import googleIcon from '../../Assets/icons/google-logo.png'
@@ -12,6 +12,10 @@ import axios from 'axios';
 
 
 const Signup = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()

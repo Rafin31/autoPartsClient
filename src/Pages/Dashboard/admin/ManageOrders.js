@@ -20,7 +20,7 @@ const ManageOrders = () => {
 
     const handleDelivery = (id) => {
 
-        axios.put(`/delivered/${id}`)
+        authenticatedApiClient.put(`/delivered/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     Swal.fire({
@@ -33,12 +33,8 @@ const ManageOrders = () => {
                     refetch()
                 }
             })
-
-
         refetch()
     }
-
-
 
     return (
         <div className='container mx-auto max-w-[1700px] px-10 '>
@@ -84,11 +80,13 @@ const ManageOrders = () => {
 
                                                 <td>
                                                     {
-                                                        data.paymentStatus === "pending" && data.paymentStatus !== "shipped" ?
-                                                            <button class="btn btn-warning" onClick={() => handleDelivery(data._id)}>Delivered</button>
+                                                        data.paymentStatus === "paid" && data.paymentStatus !== "shipped" ?
+                                                            <button class="btn btn-sm btn-warning" onClick={() => handleDelivery(data._id)}>Deliver Done</button>
 
                                                             :
-                                                            <button class="btn btn-warning" disabled onClick={() => handleDelivery(data._id)}>Delivered</button>
+
+                                                            data.paymentStatus === "shipped" &&
+                                                            <p className='badge badge-sm badge-success'>Product Delivered</p>
                                                     }
 
                                                 </td>

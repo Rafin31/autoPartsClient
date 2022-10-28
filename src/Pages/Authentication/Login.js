@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -18,6 +18,9 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     let formError;
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     const onSubmit = data => {

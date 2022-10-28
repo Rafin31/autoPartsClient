@@ -28,7 +28,7 @@ const MakeAdmin = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.put(`/makeAdmin/${id}`)
+                authenticatedApiClient.put(`/makeAdmin/${id}`)
                     .then(res => {
                         if (res.status === 200) {
                             refetch()
@@ -54,7 +54,7 @@ const MakeAdmin = () => {
             </div>
 
             <div class="overflow-x-auto ">
-                <table class="table table-compact w-full ">
+                <table class="table table-compact table-fixed w-full ">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -74,14 +74,14 @@ const MakeAdmin = () => {
                                 users?.Data.map((data, index) => {
                                     return (
                                         <>
-                                            <tr className='text-center'>
-                                                <th>{index + 1}</th>
+                                            <tr className='text-center h-auto'>
+                                                <t>{index + 1}</t>
                                                 <td>{data.name}</td>
-                                                <td>{data.name}</td>
-                                                <td className='badge badge-success'>{data.role}</td>
-                                                <td>{data.phoneNumber}</td>
-                                                <td>{data.address}</td>
-                                                <td>{data.linkdinLink}</td>
+                                                <td>{data.email}</td>
+                                                <td className='badge badge-success mt-3'>{data.role}</td>
+                                                <td>{data?.phoneNumber}</td>
+                                                <td className='break-all'>{data?.address?.slice(0, 10) + "..."}</td>
+                                                <td className=''>{data?.linkdinLink?.slice(0, 10) + "..."}</td>
 
                                                 <td>
                                                     {

@@ -23,10 +23,10 @@ const Dashboard = () => {
 
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center pt-14 ">
+                <div className="drawer-content flex flex-col items-center pt-14 laptop:w-[100%] ">
                     <Outlet />
                 </div>
-                <div className="drawer-side ">
+                <div className="drawer-side w-[200px] overflow-hidden">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto w-80  text-white bg-slate-900 ">
                         {

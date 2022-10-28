@@ -9,7 +9,8 @@ import axios from 'axios'
 
 const queryClient = new QueryClient()
 
-axios.defaults.baseURL = 'http://localhost:5000';
+// axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://autopartsserver-production.up.railway.app/';
 
 
 const container = document.getElementById('root')

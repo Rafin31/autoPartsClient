@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
@@ -17,6 +18,10 @@ const Order = () => {
     const [minimumQty, setQty] = useState(0)
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const { isLoading, data: product } = useQuery('products',
         async () => {
@@ -119,6 +124,10 @@ const Order = () => {
 
 
 
+    }
+
+    if (!img) {
+        return <Loading />
     }
 
     return (

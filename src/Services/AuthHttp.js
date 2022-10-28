@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const authenticatedApiClient = axios.create(
     {
-        baseURL: "http://localhost:5000"
+        // baseURL: "http://localhost:5000"
+        baseURL: "https://autopartsserver-production.up.railway.app/"
     }
 )
 

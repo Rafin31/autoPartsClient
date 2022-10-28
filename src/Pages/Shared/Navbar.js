@@ -8,8 +8,6 @@ import Button from './Button';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init';
-import useAdmin from '../../Hooks/useAdmin';
-import Loading from './Loading';
 
 const Navbar = () => {
     const location = useLocation();
@@ -85,14 +83,14 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <Link to="/" className="normal-case text-xl cursor-pointer">
+                    <a href="/" className="normal-case text-xl cursor-pointer">
                         <img src="https://demo74leotheme.b-cdn.net/prestashop/at_autozpro_demo/img/logo-1647663381.jpg" alt="" srcSet="" />
-                    </Link>
+                    </a>
                 </div>
 
                 <div className="navbar-center hidden laptop:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to="/">Home</Link></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/#category">Categories</a></li>
                         <li><a href="/#deals">Hot Deals</a></li>
                         <li><a href="/#review">Review</a></li>

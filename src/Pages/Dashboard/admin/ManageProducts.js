@@ -28,7 +28,7 @@ const ManageProducts = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`/products/${id}`)
+                authenticatedApiClient.delete(`/products/${id}`)
                     .then(res => {
                         if (res.status === 200) {
                             refetch()
@@ -75,8 +75,8 @@ const ManageProducts = () => {
                                         <>
                                             <tr className='text-center'>
                                                 <th>{index + 1}</th>
-                                                <td>{data.name}</td>
-                                                <td>{data.description.slice(0, 50) + "..."}</td>
+                                                <td className='break-all'>{data.name.slice(0, 10) + "..."}</td>
+                                                <td className='break-all'>{data.description.slice(0, 50) + "..."}</td>
                                                 <td>{data.Saller_name}</td>
                                                 <td>{data.available}</td>
                                                 <td>{data.minimum_order_qty}</td>

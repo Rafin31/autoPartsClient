@@ -1,16 +1,19 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { authenticatedApiClient } from '../../../Services/AuthHttp';
+import spinner from '../../../Assets/Loading/Dual Ring-1.4s-197px.gif'
 
 const AddProduct = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [loading, setLoading] = useState(false)
 
     const key = '9d6e3bde518bad1285ec1fad0ec08faa'
 
     const onSubmit = (data) => {
+        setLoading(true)
         const image = data.img[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -30,12 +33,11 @@ const AddProduct = () => {
                         minimum_order_qty: data.minimumQty,
                         price: data.price,
                         img: result.data.display_url,
-
-
                     }
 
                     authenticatedApiClient.post('/products', { product })
                         .then(data => {
+                            setLoading(false)
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
@@ -182,9 +184,14 @@ const AddProduct = () => {
 
                 </div>
 
-                <button type='submit' htmlFor="my-modal-4" className="btn text-white tracking-widest border-0 
+                {
+                    loading ?
+                        <img className='block mx-auto w-[50px] h-[50px]' src={spinner} alt="" />
+                        :
+                        <button type='submit' htmlFor="my-modal-4" className="btn text-white tracking-widest border-0 
                            bg-gradient-to-r from-cyan-500 to-blue-500  w-full
                            hover:from-blue-500 hover:to-cyan-500">Add Product</button>
+                }
 
 
 
