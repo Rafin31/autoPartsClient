@@ -3,7 +3,7 @@ import axios from 'axios';
 const authenticatedApiClient = axios.create(
     {
         // baseURL: "http://localhost:5000"
-        baseURL: "https://autopartsserver-production.up.railway.app/"
+        baseURL: "https://asif.protugaltour.com/"
     }
 )
 
