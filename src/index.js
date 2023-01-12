@@ -10,7 +10,8 @@ import axios from 'axios'
 const queryClient = new QueryClient()
 
 // axios.defaults.baseURL = 'http://localhost:5000';
-axios.defaults.baseURL = 'https://asif.protugaltour.com/';
+// axios.defaults.baseURL = 'https://asif.protugaltour.com/';
+axios.defaults.baseURL = 'https://asif.tourparisiya.com/';
 
 
 const container = document.getElementById('root')

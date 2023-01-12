@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import loadingSpinnerGif from '../../Assets/Loading/Dual Ring-1.4s-197px.gif'
 import { authenticatedApiClient } from '../../Services/AuthHttp'
 
@@ -13,9 +14,10 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState();
+    const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://asif.tourparisiya.com/create-payment-intent', {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -75,7 +77,11 @@ const CheckoutForm = ({ order }) => {
             setProcessing(false)
 
             authenticatedApiClient.put(`/order/${order._id}`, { transactionID: paymentIntent.id })
-                .then(data => setSuccess("Congrats! Your Payment is complete"))
+                .then(data => {
+                    setSuccess("Congrats! Your Payment is complete")
+                    navigate('/dashboard')
+                }
+                )
 
 
         }

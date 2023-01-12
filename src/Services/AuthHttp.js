@@ -3,7 +3,8 @@ import axios from 'axios';
 const authenticatedApiClient = axios.create(
     {
         // baseURL: "http://localhost:5000"
-        baseURL: "https://asif.protugaltour.com/"
+        // baseURL: "https://asif.protugaltour.com/"
+        baseURL: "https://asif.tourparisiya.com/"
     }
 )
 
